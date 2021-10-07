@@ -55,7 +55,9 @@
               out.innerHTML = "correct : " + correct + " " + "wrong : " + wrong
               alert("Access denied")
               if(accLock>=3){
-                accLockPassPhrase()
+                if(wrong >= 3){
+                   accLockPassPhrase()
+                }
               }
           }
       }
