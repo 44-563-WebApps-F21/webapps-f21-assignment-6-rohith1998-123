@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Page</title>
+</head> 
+<body>
+
+<h2>Rohith Reddy Kondle orders a car</h2>
+
+<div class="container">
+    <form>
+        <input type="checkbox" id="check_electric" name="check_electric" value="electric">
+        <label for="check_electric" class="">electric </label><br>
+
+        <input type="checkbox" id="check_ac" name="check_ac" value="ac">
+        <label for="check_ac">ac </label><br>
+
+        <input type="checkbox" id="check_gps" name="check_gps" value="gps">
+        <label for="check_gps">gps </label><br>
+
+        <input type="button" onclick="orderCar()" value="Order a Car">
+        <br>
+    </form>
+</div>
+
+<div class="container">
+    <form>
+        
+            <label for="form_property">Enter a property</label>
+            <input type="text" id="form_property" name="form_property" value="color"><br>
+        
+            <label for="form_value">Enter a value</label>
+            <input type="text" id="form_value" name="form_value"><br>
+
+        <input type="button" onclick="updateCar()" value="Update the Car">
+    </form>
+</div>
+
+<div class="container">
+    <p id="result">This text will be replaced </p>
+</div>
+<script>
+    var my_car = {}
+
+    function orderCar() {
+        my_car = {}
+        if (document.getElementById("check_electric").checked == true)
+            my_car['electric'] = 'true'
+        else
+            my_car['electric'] = 'false'
+
+        if (document.getElementById("check_ac").checked == true)
+            my_car['ac'] = 'true'
+        else
+            my_car['ac'] = 'false'
+
+        if (document.getElementById("check_gps").checked == true)
+            my_car['gps'] = 'true'
+        else
+            my_car['gps'] = 'false'
+        document.getElementById("result").innerHTML = JSON.stringify(my_car)
+        console.log(my_car)
+    }
+
+    function updateCar() {
+        form_property = document.getElementById("form_property").value
+        form_value = document.getElementById("form_value").value
+        my_car[form_property] = form_value
+        document.getElementById("result").innerHTML = JSON.stringify(my_car)
+        console.log(my_car)
+    }
+</script>
+
+</body>
+</html> 
