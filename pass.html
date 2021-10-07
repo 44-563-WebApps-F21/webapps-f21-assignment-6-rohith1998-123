@@ -2,23 +2,29 @@
 <html>
   <head>
     <title>Pass phrase check page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
 
   <body>
     <h2>Pass phrase by Rohith Reddy Kondle</h2>
-    <div class="container">
+    <div class="container border bg-primary">
       <form>
-        <label for="form_one" class="col-sm-3 col-form-label">Enter the secret phrase </label>
-        <input type="password" class="form-control" id="form_one" name="form_one" min=10 max=50 step=2 value="Let me in"> <br>
+        <label for="form_one" class="col-sm-3">Enter the secret phrase </label>
+        <input type="password" class="col-sm-2" id="form_one" name="form_one" value="Let me in"> <br>
 
-        <label for="form_two" class="col-sm-3 col-form-label">Enter a phrase </label> 
-        <input type="text" id="form_two" name="form_two" autofocus> <br>
+        <label for="form_two" class="col-sm-3">Enter a phrase </label> 
+        <input type="text" class="col-sm-2" id="form_two" name="form_two" autofocus> <br>
 
-        <input type="button" onclick="processPhrase()" value="Check the phrase">
+        <input type="button" class="btn btn-danger" onclick="processPhrase()" value="Check the phrase">
       </form>
   </div>
 
-  <div class="container">
+  <div class="container border bg-info">
       <p id="result">This text will be replaced </p>
   </div>
 
@@ -30,6 +36,7 @@
       let usingImage = 1;
       let correct = 0;
       let wrong = 0;
+      var accLock = 0;
 
       function processPhrase() {
           console.log("Getting form values")
@@ -38,14 +45,23 @@
 
           out = document.getElementById("result")
           if (password == guess) {
-              alert("Access allowed")
+              accLock = 0
               correct = correct + 1
               out.innerHTML = "correct : " + correct + " " + "wrong : " + wrong
+              alert("Access allowed")
           } else {
-              alert("Access denied")
+              accLock = accLock + 1
               wrong = wrong + 1
               out.innerHTML = "correct : " + correct + " " + "wrong : " + wrong
+              alert("Access denied")
+              if(accLock>=3){
+                accLockPassPhrase()
+              }
           }
+      }
+
+      function accLockPassPhrase(){
+        alert("Account Locked")
       }
 
       function newImage() {

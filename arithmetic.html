@@ -2,28 +2,34 @@
 <html>
 <head>
     <title>Arithmetic Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head> 
 <body>
 
 <h2>Rohith Reddy Kondle computes</h2>
 
-<div class="container">
+<div class="container border bg-primary">
     <form>
-            <label for="form_one" class="col-sm-2 col-form-label">Enter a base </label>
-            <input type="number" class="col-sm-2 form-control" id="form_one" name="form_one" value=10> <br>
+            <label for="form_one" class="col-sm-3">Enter a base </label>
+            <input type="number" class="col-sm-2" id="form_one" name="form_one" value=10> <br>
      
-            <label for="form_two" class="col-sm-2 col-form-label">Enter an exponent </label>
-            <input type="number" class="col-sm-2 form-control" id="form_two" name="form_two" value=2> <br>
+            <label for="form_two" class="col-sm-3">Enter an exponent </label>
+            <input type="number" class="col-sm-2" id="form_two" name="form_two" value=2> <br>
 
-        <input type="button" class="col-sm-2 btn btn-primary" onclick="powers()" value="compute">
+        <input type="button" class="col-sm-2 btn btn-danger" onclick="powers()" value="compute">
     </form>
 </div>
 
-<div class="container">
+<div class="container border bg-info">
     <p id="result">This text will be replaced </p>
 </div>
 
-<div class="container">
+<div class="container border bg-secondary">
     <form>
         <input type="radio" id="add" name="arith_oper" onclick="processRadio()">
         <label for="add">+</label><br>
@@ -36,7 +42,7 @@
     </form>
 </div>
 
-<div class="container">
+<div class="container border bg-info">
     <p id="res">Results of Radio buttons will be shown here</p>
 </div>
 
@@ -45,17 +51,13 @@
         console.log("Getting form values")
         base = document.getElementById("form_one").value
         exponent = document.getElementById("form_two").value
-
         let result = ""
-
         for (first = 1; first <= exponent; first++) {
             result = result + " " +
                 Math.pow(base, first)
-
         }
         document.getElementById("result").innerHTML = "powers of " + base + " are: " + result
     }
-
 
     function processRadio() {
         base = document.getElementById("form_one").value

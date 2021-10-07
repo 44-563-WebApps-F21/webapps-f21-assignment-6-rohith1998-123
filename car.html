@@ -2,12 +2,18 @@
 <html>
 <head>
     <title>Car Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head> 
 <body>
 
 <h2>Rohith Reddy Kondle orders a car</h2>
 
-<div class="container">
+<div class="container border bg-primary">
     <form>
         <input type="checkbox" id="check_one" name="check_one" value="electric">
         <label for="check_one" class="">electric </label><br>
@@ -18,25 +24,25 @@
         <input type="checkbox" id="check-three" name="check-three" value="gps">
         <label for="check-three">gps </label><br>
 
-        <input type="button" onclick="orderCar()" value="Order a Car">
+        <input type="button" class="btn btn-danger" onclick="orderCar()" value="Order a Car">
         <br>
     </form>
 </div>
 
-<div class="container">
+<div class="container border bg-secondary">
     <form>
         
-            <label for="property">Enter a property</label>
-            <input type="text" id="property" name="property" value="color"><br>
+            <label for="property" class="col-sm-3">Enter a property</label>
+            <input type="text" class="col-sm-2" id="property" name="property" value="color"><br>
         
-            <label for="value">Enter a value</label>
-            <input type="text" id="value" name="value"><br>
+            <label for="value" class="col-sm-3">Enter a value</label>
+            <input type="text" class="col-sm-2" id="value" name="value"><br>
 
-        <input type="button" onclick="updateCar()" value="Update the Car">
+        <input type="button" class="btn btn-danger" onclick="updateCar()" value="Update the Car">
     </form>
 </div>
 
-<div class="container">
+<div class="container border bg-info">
     <p id="result">This text will be replaced </p>
 </div>
 <script>
