@@ -9,11 +9,11 @@
 
 <div class="container">
     <form>
-            <label for="first_value" class="col-sm-2 col-form-label">Enter a base </label>
-            <input type="number" class="col-sm-2 form-control" id="first_value" name="first_value" value=10> <br>
+            <label for="form_one" class="col-sm-2 col-form-label">Enter a base </label>
+            <input type="number" class="col-sm-2 form-control" id="form_one" name="form_one" value=10> <br>
      
-            <label for="second_value" class="col-sm-2 col-form-label">Enter an exponent </label>
-            <input type="number" class="col-sm-2 form-control" id="second_value" name="second_value" value=2> <br>
+            <label for="form_two" class="col-sm-2 col-form-label">Enter an exponent </label>
+            <input type="number" class="col-sm-2 form-control" id="form_two" name="form_two" value=2> <br>
 
         <input type="button" class="col-sm-2 btn btn-primary" onclick="powers()" value="compute">
     </form>
@@ -43,8 +43,8 @@
 <script>
     function powers() {
         console.log("Getting form values")
-        base = document.getElementById("first_value").value
-        exponent = document.getElementById("second_value").value
+        base = document.getElementById("form_one").value
+        exponent = document.getElementById("form_two").value
 
         let result = ""
 
@@ -58,8 +58,8 @@
 
 
     function processRadio() {
-        base = document.getElementById("first_value").value
-        exponent = document.getElementById("second_value").value
+        base = document.getElementById("form_one").value
+        exponent = document.getElementById("form_two").value
         result = 0
         text = ""
         if (document.getElementById("add").checked == true) {
