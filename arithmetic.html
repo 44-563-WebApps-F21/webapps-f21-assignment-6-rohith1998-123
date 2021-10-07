@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Page</title>
+</head> 
+<body>
+
+<h2>Rohith Reddy Kondle computes</h2>
+
+<div class="container">
+    <form>
+            <label for="first_value" class="col-sm-2 col-form-label">Enter a base </label>
+            <input type="number" class="col-sm-2 form-control" id="first_value" name="first_value" value=10> <br>
+     
+            <label for="second_value" class="col-sm-2 col-form-label">Enter an exponent </label>
+            <input type="number" class="col-sm-2 form-control" id="second_value" name="second_value" value=2> <br>
+
+        <input type="button" class="col-sm-2 btn btn-primary" onclick="powers()" value="compute">
+    </form>
+</div>
+
+<div class="container">
+    <p id="result">This text will be replaced </p>
+</div>
+
+<div class="container">
+    <form>
+        <input type="radio" id="add" name="arith_oper" onclick="processRadio()">
+        <label for="add">+</label><br>
+        <input type="radio" id="minus" name="arith_oper" onclick="processRadio()">
+        <label for="minus">-</label><br>
+        <input type="radio" id="multiply" name="arith_oper" onclick="processRadio()">
+        <label for="multiply">*</label><br>
+        <input type="radio" id="devide" name="arith_oper" onclick="processRadio()">
+        <label for="devide">/</label><br>
+    </form>
+</div>
+
+<div class="container">
+    <p id="res">Results of Radio buttons will be shown here</p>
+</div>
+
+<script>
+    function powers() {
+        console.log("Getting form values")
+        base = document.getElementById("first_value").value
+        exponent = document.getElementById("second_value").value
+
+        let result = ""
+
+        for (first = 1; first <= exponent; first++) {
+            result = result + " " +
+                Math.pow(base, first)
+
+        }
+        document.getElementById("result").innerHTML = "powers of " + base + " are: " + result
+    }
+
+
+    function processRadio() {
+        base = document.getElementById("first_value").value
+        exponent = document.getElementById("second_value").value
+        result = 0
+        text = ""
+        if (document.getElementById("add").checked == true) {
+            result = +base + +exponent
+            text = "sum of " + base + " and " + exponent + " is " + result
+        } else if (document.getElementById("minus").checked == true) {
+            result = base - exponent
+            text = "Difference of " + base + " and " + exponent + " is " + result
+        } else if (document.getElementById("multiply").checked == true) {
+            result = base * exponent
+            text = "Product of " + base + " and " + exponent + " is " + result
+        } else if (document.getElementById("devide").checked = true) {
+            result = base / exponent
+            text = "Division of " + base + " and " + exponent + " is " + result
+        }
+        document.getElementById("res").innerHTML = text
+
+    }
+</script>
+
+
+</body>
+</html> 
